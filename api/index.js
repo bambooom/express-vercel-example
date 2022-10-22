@@ -7,6 +7,11 @@ const { Noco } = require('nocodb');
 (async () => {
   try {
     const httpServer = app.listen(process.env.PORT || 8080);
+    app.get('/api', (req, res) => {
+      res.setHeader('Content-Type', 'text/html');
+      res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+      res.end(`Hello! World</a>`);
+    });
     app.use(await Noco.init({}, httpServer, app));
     console.log(`Visit : localhost:${process.env.PORT}/dashboard`);
   } catch (e) {
