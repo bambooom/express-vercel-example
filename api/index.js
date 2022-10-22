@@ -8,11 +8,11 @@ const app = require('express')();
   try {
     const httpServer = app.listen(process.env.PORT || 8080);
     // app.use(await Noco.init({}, httpServer, app));
-    app.get('/api', (req, res) => {
-      res.setHeader('Content-Type', 'text/html');
-      res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-      res.end(`Hello! World</a>`);
-    });
+    // app.get('/api', (req, res) => {
+    //   res.setHeader('Content-Type', 'text/html');
+    //   res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+    //   res.end(`Hello! World</a>`);
+    // });
     console.log(`Visit : localhost:${process.env.PORT}/dashboard`);
   } catch (e) {
     console.log(e);
